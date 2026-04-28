@@ -2,7 +2,7 @@
 
 
 //     image:"images/products/athletic-cotton-socks-6-pairs.jpg",
-//     name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
+//     Id:"Black and Gray Athletic Cotton Socks - 6 Pairs",
 //     rating: {
 //         stars:4.5,
 //         count:87
@@ -14,7 +14,7 @@
 
 
 //     image:"images/products/athletic-cotton-socks-6-pairs.jpg",
-//     name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
+//     Id:"Black and Gray Athletic Cotton Socks - 6 Pairs",
 //     rating: {
 //         stars:4.5,
 //         count:87
@@ -26,7 +26,7 @@
 
 
 //     image:"images/products/athletic-cotton-socks-6-pairs.jpg",
-//     name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
+//     Id:"Black and Gray Athletic Cotton Socks - 6 Pairs",
 //     rating: {
 //         stars:4.5,
 //         count:87
@@ -47,8 +47,8 @@ producthtml = producthtml+
         src="${product.image}">
     </div>
 
-    <div class="product-name limit-text-to-2-lines">
-    ${product.name}
+    <div class="product-Id limit-text-to-2-lines">
+    ${product.Id}
     </div>
 
     <div class="product-rating-container">
@@ -85,7 +85,7 @@ producthtml = producthtml+
     Added
     </div>
 
-    <button data-product-name="${product.name}"
+    <button data-product-id="${product.id}"
         class="add-to-cart-button button-primary js-add-to-cart">
     Add to Cart
     </button>
@@ -104,13 +104,13 @@ let addToCartButton = document.querySelectorAll(".js-add-to-cart");
 
 addToCartButton.forEach(button => {
     button.addEventListener("click",()=>{
-        // console.log(button.dataset.productName);
-        let productName=button.dataset.productName;
+        // console.log(button.dataset.productId);
+        let productId=button.dataset.productId;
 
         let matchingItem;
 
         cart.forEach(cartItem=>{
-            if(cartItem.productName===productName){
+            if(cartItem.productId===productId){
                 matchingItem=cartItem;
             }
         })
@@ -119,7 +119,7 @@ addToCartButton.forEach(button => {
             matchingItem.quantity += 1;
         }else{
             cart.push({
-            productName : productName,
+            productId : productId,
             quantity : 1
         }) ;
         };
